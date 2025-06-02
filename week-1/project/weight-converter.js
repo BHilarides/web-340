@@ -8,7 +8,7 @@
 "use strict";
 
 // TODO: Implement the weight conversion logic here
-const input = ProcessingInstruction.argv[2];
+const input = process.argv[2];
 
 if (input === undefined) {
   console.error("Usage: node weight-converter.js <pounds>")
