@@ -1,0 +1,12 @@
+{
+  "name": "recipe-cli",
+  "version": "1.0.0",
+  "description": "A simple CLI for recipes and timers",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node tester.js"
+  },
+  "author": "Ben Hilarides",
+  "license": "ISC"
+}
