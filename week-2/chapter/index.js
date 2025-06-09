@@ -11,7 +11,7 @@ const {
 
 function displayRecipeDemo() {
   console.log("===Recipe Demo===");
-  const ingredients = ["flour", "sugar", "eggs"];
+  const ingredients = ["ingredient1", "ingredient2", "ingredient3"];
   const result = createRecipe(ingredients);
   console.log(result);
   console.log("");
