@@ -1,0 +1,13 @@
+{
+  "name": "planet-distance-calculator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node distance-calculator.js",
+    "test": "node distance-calculator.spec.js"
+  },
+  "keywords": [],
+  "author": "Ben Hilarides",
+  "license": "ISC",
+  "description": "testing the distance-calculator package"
+}
