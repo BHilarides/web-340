@@ -10,51 +10,46 @@ const calculateDistance = require('../src/distance-calculator');
 function testEarthToMars() {
   try {
     const result = calculateDistance('Earth', 'Mars');
-    assert.strictEqual(result, 0.52);
+    assert.StrictEqual(calculateDistance(result, 0.52));
     console.log('testEarthToMars passed');
     return true;
   } catch (error) {
-    console.error('testEarthToMars failed:', error.message);
+    console.error('Failed testEarthToMars: ${error.message}');
     return false;
   }
 }
 
 function testJupiterToVenus() {
-  try {
+ try {
     const result = calculateDistance('Jupiter', 'Venus');
-    assert.strictEqual(result, 4.48);
-    console.log('testJupiterToVenus passed');
+    assert.StrictEqual(calculateDistance(result, 4.48));
     return true;
   } catch (error) {
-    console.error('testJupiterToVenus failed:', error.message);
+    console.error('Failed testJupiterToVenus: ${error.message}');
     return false;
   }
 }
 
-function testInvalidPlantedName() {
+
+function testInvalidPlanetName() {
   try {
-    calculateDistance('Earth', 'Ooga-chaka');
-    console.error('testInvalidPlantedName failed: No error thrown for invalid planet name');
-    return false;
-  } catch (error) {
-    assert.strictEqual(error.message, 'Invalid planet name');
-    console.log('testInvalidPlantedName passed');
+    assert.StrictEqual(calculateDistance('Earth', 'Ooga-Chaka'), expectedValue);
     return true;
+  } catch (error) {
+    console.error('Invalid Planet Name: ${error.message}');
+    return false;
   }
 }
 
 // Run all tests
 function runTests() {
-  const tests = [
-    testEarthToMars,
-    testJupiterToVenus,
-    testInvalidPlanetName
-  ];
+  let passed = 0;
 
-  const results = tests.map((fn) => fn());
-  const passed = results.filter(Boolean).length;
+  if (testEarthToMars()) passed++;
+  if (testJupiterToVenus()) passed++;
+  if (testInvalidPlanetName()) passed++;
 
-  console.log(`\n${passed}/${tests.length} tests passed.`);
+  console.log(`\n${passed}/${total} tests passed.`);
 }
 
 runTests();

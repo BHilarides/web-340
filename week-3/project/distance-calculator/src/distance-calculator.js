@@ -16,15 +16,26 @@ const planetDistances = {
   Pluto: 39.48,
 };
 
-function calculateDistance(planet1, planet2) {
-  const distance1 = planetDistances[planet1];
-  const distance2 = planetDistances[planet2];
+/**
+ * Calculates the distance in AU between two planets based on their average
+ * distance from the Sun.
+ *
+ * @param {string} planetA - The name of the first planet.
+ * @param {string} planetB - The name of the second planet.
+ * @returns {number} - The absolute distance in AU between the two planets.
+ * @throws {Error} - If either planet name is invalid.
+ */
+function calculateDistance(planetA, planetB) {
+  const distanceA = planetDistances[planetA];
+  const distanceB = planetDistances[planetB];
 
-  if (distance1 === undefined || distance2 === undefined) {
+  if (distanceA === undefined || distanceB === undefined) {
     throw new Error('Invalid planet name');
   }
 
-  return Math.abs(distance1 - distance2);
+  return Math.abs(distanceA - distanceB);
 }
 
-module.exports = calculateDistance;
+module.exports = {
+  calculateDistance
+};
