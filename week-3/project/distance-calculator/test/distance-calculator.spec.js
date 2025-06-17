@@ -5,16 +5,16 @@
 "use strict";
 
 const assert = require('assert');
-const calculateDistance = require('../src/distance-calculator');
+const { calculateDistance } = require('../src/distance-calculator');
 
 function testEarthToMars() {
   try {
     const result = calculateDistance('Earth', 'Mars');
-    assert.StrictEqual(calculateDistance(result, 0.52));
+    assert.strictEqual(result, 0.52);
     console.log('testEarthToMars passed');
     return true;
   } catch (error) {
-    console.error('Failed testEarthToMars: ${error.message}');
+    console.error(`Failed testEarthToMars: ${error.message}`);
     return false;
   }
 }
@@ -22,10 +22,11 @@ function testEarthToMars() {
 function testJupiterToVenus() {
  try {
     const result = calculateDistance('Jupiter', 'Venus');
-    assert.StrictEqual(calculateDistance(result, 4.48));
+    assert.strictEqual(result, 4.48);
+    console.log('testJupiterToVenus passed');
     return true;
   } catch (error) {
-    console.error('Failed testJupiterToVenus: ${error.message}');
+    console.error(`Failed testJupiterToVenus: ${error.message}`);
     return false;
   }
 }
@@ -33,16 +34,18 @@ function testJupiterToVenus() {
 
 function testInvalidPlanetName() {
   try {
-    assert.StrictEqual(calculateDistance('Earth', 'Ooga-Chaka'), expectedValue);
-    return true;
-  } catch (error) {
-    console.error('Invalid Planet Name: ${error.message}');
+    calculateDistance('Earth', 'Ooga-Chaka');
+    console.error(`testInvalidPlanetName failed: No error thrown for invalid planet`);
     return false;
+  } catch (error) {
+    console.log(`testInvalidPlanetName: passed`);
+    return true;
   }
 }
 
 // Run all tests
 function runTests() {
+  const total = 3;
   let passed = 0;
 
   if (testEarthToMars()) passed++;

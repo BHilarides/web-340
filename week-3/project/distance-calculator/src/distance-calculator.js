@@ -25,6 +25,7 @@ const planetDistances = {
  * @returns {number} - The absolute distance in AU between the two planets.
  * @throws {Error} - If either planet name is invalid.
  */
+
 function calculateDistance(planetA, planetB) {
   const distanceA = planetDistances[planetA];
   const distanceB = planetDistances[planetB];
