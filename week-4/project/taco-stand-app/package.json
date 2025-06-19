@@ -1,0 +1,16 @@
+{
+  "name": "taco-stand-app",
+  "version": "1.0.0",
+  "description": "an app that lets you order tacos",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node taco-stand-app.spec.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Ben Hilarides",
+  "license": "ISC"
+}
