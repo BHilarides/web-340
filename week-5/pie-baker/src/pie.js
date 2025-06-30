@@ -7,7 +7,19 @@
 "use strict";
 
 function bakePie(pieType, ingredients) {
-  // Your code here
+  const essentialIngredients = ["flour", "sugar", "butter"];
+
+  // Check for missing ingredients
+  const missing = essentialIngredients.filter(
+    ingredient => !ingredients.includes(ingredient));
+
+    if (missing.length > 0) {
+      console.warn(`Cannot bake ${pieType} pie without essential ingredients: ${missing.join(", ")}`);
+    process.exit(1);
+  }
+    console.log(
+      `Success, baked a ${pieType} pie with: ${ingredients.join(", ")}`
+  );
 }
 
 module.exports = { bakePie };
