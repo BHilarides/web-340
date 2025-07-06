@@ -9,7 +9,7 @@
 
 const { bakePie } = require("../src/pie");
 
-const exit = jest.spyOn(process, "exit").mockImplementation(code => code);
+const exit = jest.spyOn(process, "exit").mockImplementation(() => {});
 
 describe("bakePie", () => {
   let log, warn;
@@ -25,23 +25,23 @@ describe("bakePie", () => {
   });
 
   test("bakes a pie successfully with all ingredients", () => {
-    bakePie("apple", ["flour", "sugar", "butter", "apples"]);
+    const result = bakePie("apple", ["flour", "sugar", "butter", "apples"]);
 
-    expect(log).toHaveBeenCalledWith(`Success, baked a apple pie with: flour, sugar, butter, apples`);
+    expect(result).toBe(`Success, baked a apple pie with: flour, sugar, butter, apples`);
     expect(exit).not.toHaveBeenCalled();
   });
 
   test("fails to bake a pie when an essential ingredient is missing", () => {
-    bakePie("lemon", ["flour", "sugar", "lemons"]);
+    const result = bakePie("lemon", ["flour", "sugar", "lemons"]);
 
-    expect(warn).toHaveBeenCalledWith(`Cannot bake lemon pie without essential ingredients: butter`);
+    expect(result).toBe(`Cannot bake lemon pie without essential ingredients: butter`);
     expect(exit).toHaveBeenCalledWith(1);
   });
 
   test("fails to bake pie when multiple essential ingredients are missing", () => {
-    bakePie("peach", ["flour", "peaches" ]);
+    const result = bakePie("peach", ["flour", "peaches" ]);
 
-    expect(warn).toHaveBeenCalledWith(`Cannot bake peach pie without essential ingredients: sugar, butter`);
+    expect(result).toBe(`Cannot bake peach pie without essential ingredients: sugar, butter`);
     expect(exit).toHaveBeenCalledWith(1);
   });
 });
