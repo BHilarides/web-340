@@ -38,6 +38,8 @@ describe('CharacterCreator', () => {
         done(error);
       }
     });
+
+    characterCreator.write('');
   });
 
   test("should transform data correctly when written to", (done) => {
